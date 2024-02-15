@@ -21,9 +21,9 @@ async function addOne(tipoVino) {
 }
 
 // UPDATE ONE ARTICLE
-async function updateOne(tipoVino, id) {
-    const sql = 'UPDATE tipos_vinos SET tipo_vino = ? WHERE id = ?';
-    return db.query(sql,[tipoVino, id]);
+async function updateOne(id, tipoVino) {
+    const sql = 'UPDATE tipos_vinos SET tipo_vino=? WHERE id=?';
+    return db.query(sql, [tipoVino, id]);
 }
 
 

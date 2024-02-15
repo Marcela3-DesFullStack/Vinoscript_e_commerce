@@ -1,7 +1,7 @@
 const express = require ('express');
 const router = express.Router()
 
-const tiposVinos = require('../services/tiposvino.js');
+const tiposVinos = require('../services/vinoModel.js');
 
 router.get('/', async(req, resp)=>{
     resp.json(await tiposVinos.getAll());
