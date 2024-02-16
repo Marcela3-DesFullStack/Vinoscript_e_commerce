@@ -1,4 +1,4 @@
-const db = require('./db');
+const db = require('../services/db.js');
 
 // SEE- RECOVER ALL REGISTERS
 async function getAll() {
@@ -17,7 +17,7 @@ async function getOne(id) {
 async function addOne(tipoVino) {
     //console.log('El tipo de vino ' + tipoVino);
     const sql = 'INSERT INTO tipos_vinos (tipo_vino) VALUES (?)'  ;
-    return db.query(sql,[tipoVino]);  
+    return db.query(sql,[tipoVino]);
 }
 
 // UPDATE ONE ARTICLE
@@ -33,11 +33,12 @@ async function deleteOne(id) {
     return db.query(sql,[id]);
 }
 
+
 module.exports = {
     getAll,
     getOne,
     addOne,
     deleteOne,
     updateOne,
+    
 }
-

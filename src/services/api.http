@@ -1,0 +1,10 @@
+POST http://localhost:4000/catalogo/login
+Content-Type: application/json
+
+ {
+    "userName": "Alfredo",
+    "userEmail": "alfredo@f5.org",
+    "password" : "0512",
+    "userRole" : "administrador"
+
+ }                        

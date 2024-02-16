@@ -1,32 +1,21 @@
 const express = require ('express');
-const router = express.Router()
-
-const tiposVinos = require('../services/vinoModel.js');
-
-router.get('/', async(req, resp)=>{
-    resp.json(await tiposVinos.getAll());
-})
-
-router.get('/:id', async(req, resp) => {
-    const id = parseInt (req.params.id);
-    resp.json(await tiposVinos.getOne(id));
-})
-
-router.post('/', async(req, resp)=>{
-    const {tipo_vino} = req.body
-    resp.json(await tiposVinos.addOne(tipo_vino));
-})
+const router = express.Router();
+const catalogos = require('../models/vinoModel.js');
+const {vinoController} = require ("../controllers/vinoController.js")
 
 
-router.put('/:id', async(req, resp) => {
-    const {tipo_vino} = req.body;
-    const id = parseInt (req.params.id);
-    resp.json(await tiposVinos.updateOne(id,tipo_vino));
-})
 
-router.delete('/:id', async(req, resp) => {
-    const id = parseInt (req.params.id);
-    resp.json(await tiposVinos.deleteOne(id));
-})
+router.get('/', vinoController.getAll)
+
+router.get('/:id', vinoController.getOne)
+
+router.post('/', vinoController.addOne)
+
+router.put('/:id', vinoController.updateOne)
+
+router.delete('/:id', vinoController.deleteOne)
+
+router.post('/login', vinoController.userLogin)
+
 
 module.exports = router;
