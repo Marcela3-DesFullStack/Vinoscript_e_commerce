@@ -10,6 +10,8 @@ This project implements a simple REST API using Node.js and Express to manage wi
 * Add a new wine type (`POST /tipos`)
 * Modify an existing wine type (`PUT /tipos/:id`)
 * Delete a wine type (`DELETE /tipos/:id`)
+* Login to differentiate admin from users using api.http
+* Model View Controller
 
 ## Getting Started
 
@@ -28,7 +30,8 @@ This project implements a simple REST API using Node.js and Express to manage wi
 
 ### Install dependencies
 
-npm install
+npm install express nodemon dotenv mysql2
+@types/node inside development environment
 
 ### Configuration:
 
@@ -36,6 +39,7 @@ Create a .env file in the project root directory with the following environment 
 
 HOST=your_mysql_host
 DATABASE=your_mysql_database
+PORT=3306
 USER=your_mysql_user
 PASSWORD=your_mysql_password
 Replace your_mysql_host, your_mysql_database, your_mysql_user, and your_mysql_password with your actual MySQL credentials.
@@ -52,12 +56,13 @@ The API will be listening on port 4000.
 ### API Endpoints
 Base URL: http://localhost:4000
 
-Method	Path	Description
-GET	/tipos	Get all wine types
-GET	/tipos/:id	Get a specific wine type by ID
-POST	/tipos	Add a new wine type
-PUT	/tipos/:id	Modify an existing wine type
-DELETE	/tipos/:id	Delete a wine type
+### Method	Path	Description
+GET	/catalogo	Get all wine types
+GET	/catalogo/:id	Get a specific wine type by ID
+POST	/catalogo	Add a new wine type
+PUT	/catalogo/:id	Modify an existing wine type
+DELETE	/catalogo/:id	Delete a wine type
+POST /catalogo/login Login administrator or user
 
 ### Request Body:
 
